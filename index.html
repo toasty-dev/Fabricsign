@@ -1,44 +1,106 @@
 <html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #181818;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        form {
-            background-color: #212121;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 400px;
-            margin: auto;
-        }
-        label {
-            display: block;
-            margin-bottom: 20px
-            font-size: 14px;
-            color: #ffffff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #181818;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+      }
+      form {
+          background-color: #212121;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          width: 80%;
+          max-width: 400px;
+          margin: auto;
+      }
+      label {
+          display: block;
+          margin-bottom: 20px;
+          font-size: 14px;
+          font-weight: bold;
+          color: #ffffff;
+      }
+
+      .custom-file-input {
+          display: none;
+      }
+
+      .custom-file-label {
+          background-color: #4caf50;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+      }
+
+      .custom-file-input:hover + .custom-file-label {
+          background-color: #45a049;
+      }
+
+      .custom-file-input:focus + .custom-file-label {
+          outline: 1px dotted #000;
+          outline: -webkit-focus-ring-color auto 5px;
+      }
+
+      .custom-file-input::before {
+          content: 'Upload Ipa';
+          display: inline-block;
+          background-color: #4caf50;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 16px;
+      }
+
+      .custom-file-input:hover::before {
+          background-color: #45a049;
+      }
+
+      input[type="file"] {
+          display: none;
+      }
+
+      /* Customized button */
+    .button {
+          background-color: #c276bc;
+          color: #ffffff;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: bold;
+          transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+          background-color: #333;
+      }
+  </style>
 <style type="text/css" id="operaUserStyle"></style></head>
 <body>
 
 <form method="post" action="https://api.casp.dev/signeasy.php" enctype="multipart/form-data" id="uploadForm" name="uploadForm">
-    <label for="name">FabricSign</label>
-    <label for="ipa">Please upload a .IPA File</label>
-    <label class="custom-file-label" for="customFile"></label>
-    <input type="file" id="customFile" class="custom-file-input" name="ipa" accept=".ipa" required="">
-    <center>
-        <input type="submit" class="button" value="SIGN">
-    </center>
+  <label for="name">FabricSign</label>
+  <label for="ipa" style="margin-bottom: 30px;">Please upload a .IPA File</label>
+  <label class="custom-file-label" for="customFile">Upload Ipa</label>
+  <input type="file" id="customFile" class="custom-file-input" name="ipa" accept=".ipa" required="">
+  <center>
+      <input type="submit" class="button" value="SIGN">
+  </center>
 </form>
 
 
