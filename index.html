@@ -4,27 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test /api/sign</title>
+  <title>IPA Signer</title>
 </head>
 <body>
+  <h1>IPA Signer</h1>
+  <form method="post" id="uploadForm">
+    <label for="p12">Upload P12 file:</label>
+    <input type="file" name="p12" accept=".p12" required><br>
+    <label for="p12Password">P12 Password:</label>
+    <input type="password" name="p12Password" required><br>
+    <label for="mobileprovision">Upload Mobile Provision file:</label>
+    <input type="file" name="mobileprovision" accept=".mobileprovision" required><br>
+    <label for="ipa">Upload IPA file:</label>
+    <input type="file" name="ipa" accept=".ipa" required><br>
+    <button type="button" onclick="signIPA()">Sign IPA</button>
+  </form>
+
   <script>
-    // Replace 'your-server-url' with the actual URL where your server is running
-    const apiUrl = 'https://fabric-sign-api.glitch.me/api/sign';
+    function signIPA() {
+      var formData = new FormData(document.getElementById('uploadForm'));
 
-    // Sample data for testing, adjust as needed
-    const formData = new FormData();
-    formData.append('p12', /* your P12 file here */);
-    formData.append('p12Password', /* your P12 password here */);
-    formData.append('mobileprovision', /* your mobile provision file here */);
-    formData.append('ipa', /* your IPA file here */);
+      // Replace '/sign' with your actual sign endpoint on the server
+      var signEndpoint = 'https://fabric-sign-api.glitch.me/api/sign';
 
-    fetch(apiUrl, {
-      method: 'POST',
-      body: formData,
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+      fetch(signEndpoint, {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert(data.message);
+          // Redirect to the download link (replace with your actual download endpoint)
+          window.location.href = 'https://fabric-sign-api.glitch.me/api/download';
+        } else {
+          alert('Error signing IPA. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('A fucking error occurred. Its broken.');
+      });
+    }
   </script>
 </body>
 </html>
