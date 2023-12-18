@@ -1,33 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPA Signer</title>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInputs = document.querySelectorAll('.custom-file-input');
+    
+            fileInputs.forEach(function (input) {
+                input.addEventListener('change', function () {
+                    const fileName = this.files[0].name;
+                    const label = this.previousElementSibling; // Get the previous element, which is the label
+                    label.textContent = fileName;
+                });
+            });
+        });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FabricSigner</title>
+
+    <style>
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #202020;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        form {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: bold;
+            font-family: 'Segoe UI';
+        }
+
+         /* Customized file input */
+         .custom-file-input {
+            display: none;
+        }
+
+        .custom-file-label {
+            background-color: #805380;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            font-family: 'Segoe UI';
+        }
+
+        /* Customized button */
+        .button {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-family: 'Segoe UI';
+        }
+
+        .button:hover {
+            background-color: #333;
+        }
+
+        /* Custom Password Inputs*/
+        .p12passinput {
+            border: 0px;
+            border-radius: 100px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Segoe UI';
+        }
+    </style>
+
 </head>
+
 <body>
+    <form method="post" action="https://api.casp.dev/upload.php" enctype="multipart/form-data" id="uploadForm" name="uploadForm">
+        <center>
+            <label>3 GB File Upload Limit</label>
+        </center>
 
-<form method="post" action="https://api.casp.dev/upload.php" enctype="multipart/form-data" id="uploadForm" name="uploadForm">
-      <label>3 GB limit.</label>
-      <label for="name">App Name</label>
-      <input type="text" id="name" name="name" placeholder="Example: Name Here" required="">
-
-      <label for="p12">.P12 File</label>
-      <input type="file" id="p12" name="p12" accept=".p12" required="">
-
-      <label for="mobileprovision">.MobileProvision File</label>
-      <input type="file" id="mobileprovision" name="mobileprovision" accept=".mobileprovision" required="">
-
-      <label for="ipa">.IPA File</label>
-      <input type="file" id="ipa" name="ipa" accept=".ipa" required="">
-
-      <label for="pass">Password of the certificate</label>
-      <input type="password" id="pass" name="pass" placeholder="Example: AppleP12.com" required="">
-      <center>
-        <input type="submit" class="button" value="SIGN">
-      </center>
-    </form>
+        <label for="p12" class="custom-file-label">
+            <span>.P12 File</span>
+        </label>
+        <input type="file" id="p12" name="p12" accept=".p12" required="" class="custom-file-input">
   
+        <label for="mobileprovision" class="custom-file-label">
+            <span>.MobileProvision File</span>
+        </label>
+        <input type="file" id="mobileprovision" name="mobileprovision" accept=".mobileprovision" required="" class="custom-file-input">
+  
+        <label for="ipa" class="custom-file-label">
+            <span>.IPA File</span>
+        </label>
+        <input type="file" id="ipa" name="ipa" accept=".ipa" required="" class="custom-file-input">
+        <center>
+        <label for="pass" class="p12passlabel">Password of the certificate</label>
+        </center>
+        <input type="text" id="pass" name="pass" placeholder="Example: AppleP12.com" required="" class="p12passinput">
+        <center>
+          <input type="submit" class="button" value="SIGN">
+        </center>
+        <center>
+            <label> Powered by EonHub API</label>
+        </center>
+    </form>
 </body>
+
 </html>
