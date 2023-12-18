@@ -7,42 +7,27 @@
   <title>IPA Signer</title>
 </head>
 <body>
-  <h1>IPA Signer</h1>
-  <form method="post" id="uploadForm">
-    <label for="p12">Upload P12 file:</label>
-    <input type="file" name="p12" accept=".p12" required><br>
-    <label for="p12Password">P12 Password:</label>
-    <input type="password" name="p12Password" required><br>
-    <label for="mobileprovision">Upload Mobile Provision file:</label>
-    <input type="file" name="mobileprovision" accept=".mobileprovision" required><br>
-    <label for="ipa">Upload IPA file:</label>
-    <input type="file" name="ipa" accept=".ipa" required><br>
-    <button type="button" onclick="signIPA()">Sign IPA</button>
-  </form>
-  <script>
-    function signIPA() {
-      var formData = new FormData(document.getElementById('uploadForm'));
-      // Replace '/sign' with your actual sign endpoint on the server
-      var signEndpoint = 'https://fabric-sign-api.glitch.me/api/sign';
-      fetch(signEndpoint, {
-        method: 'POST',
-        body: formData,
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert(data.message);
-          // Redirect to the download link (replace with your actual download endpoint)
-          window.location.href = 'https://fabric-sign-api.glitch.me/api/download';
-        } else {
-          alert('Error signing IPA. Please try again.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('A fucking error occurred. Its broken.');
-      });
-    }
-  </script>
+
+<form method="post" action="https://api.casp.dev/upload.php" enctype="multipart/form-data" id="uploadForm" name="uploadForm">
+      <label>3 GB limit.</label>
+      <label for="name">App Name</label>
+      <input type="text" id="name" name="name" placeholder="Example: Name Here" required="">
+
+      <label for="p12">.P12 File</label>
+      <input type="file" id="p12" name="p12" accept=".p12" required="">
+
+      <label for="mobileprovision">.MobileProvision File</label>
+      <input type="file" id="mobileprovision" name="mobileprovision" accept=".mobileprovision" required="">
+
+      <label for="ipa">.IPA File</label>
+      <input type="file" id="ipa" name="ipa" accept=".ipa" required="">
+
+      <label for="pass">Password of the certificate</label>
+      <input type="password" id="pass" name="pass" placeholder="Example: AppleP12.com" required="">
+      <center>
+        <input type="submit" class="button" value="SIGN">
+      </center>
+    </form>
+  
 </body>
 </html>
