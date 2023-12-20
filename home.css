@@ -41,7 +41,6 @@ button{
 
 .fetcontainer{
   padding: 3em;
-  padding-left: 20px;
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
@@ -175,5 +174,8 @@ button{
   .button-container {
     padding-left: 10px;
     padding-right: 600px;
+  }
+  .fetcontainer {
+    padding-left: 15px;
   }
 }
