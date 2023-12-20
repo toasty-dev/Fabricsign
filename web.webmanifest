@@ -2,8 +2,8 @@
   "name": "FabricSign",
   "short_name": "FabricSign",
   "description": "Sign apps natively",
-  "start_url": "https://fabricsign.vercel.app/index.html",
-  "scope": "https://fabricsign.vercel.app/index.html"
+  "start_url": "/index.html",
+  "scope": "/"
   "display": "standalone",
   "background_color": "#202020",
   "theme_color": "#141016",
