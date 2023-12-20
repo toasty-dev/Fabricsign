@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FabricSigner</title>
@@ -18,14 +16,16 @@
     <meta name="apple-mobile-web-app-title" content="FabricSigner">
 
     <!-- Splash Screen -->
-    <link rel="apple-touch-startup-image" href="/splash.png" sizes="2048x2732" />
+    <link rel="apple-touch-startup-image" href="/splash.png" sizes="2048x2732">
 
     <!-- Disable Text Zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link href="/sign.css" rel="stylesheet">
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -33,132 +33,97 @@
     
             fileInputs.forEach(function (input) {
                 input.addEventListener('change', function () {
+                    const maxFileNameLength = 15;
                     const fileName = this.files[0].name;
+                    let displayedFileName = fileName.length <= maxFileNameLength
+                        ? fileName
+                        : fileName.substring(0, maxFileNameLength) + '...';
+    
                     const label = this.previousElementSibling; // Get the previous element, which is the label
-                    label.textContent = fileName;
+                    label.textContent = displayedFileName;
                 });
             });
         });
     </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FabricSigner</title>
 
-    <style>
-         body {
-            font-family: 'Poppins';
-            background-color: #202020;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        form {
-            background-color: #1a1a1a;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 400px;
-            margin: auto;
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #ffffff;
-            font-weight: bold;
-            font-family: 'Poppins';
-        }
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Show the overlay and pop-up on page load
+            const overlay = document.querySelector('.overlay');
+            overlay.style.display = 'flex';
 
-         /* Customized file input */
-         .custom-file-input {
-            display: none;
-        }
-
-        .custom-file-label {
-            background-color: #805380;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-            font-family: 'Poppins';
-        }
-
-        /* Customized button */
-        .button {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-family: 'Poppins';
-        }
-
-        .button:hover {
-            background-color: #333;
-        }
-
-        /* Custom Password Inputs*/
-        .p12passinput {
-            border: 0px;
-            border-radius: 100px;
-            padding: 12px;
-            margin-bottom: 10px;
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-            text-align: center;
-            font-weight: bold;
-            font-family: 'Poppins';
-        }
-    </style>
+            // Close the pop-up when clicking the close button
+            document.querySelector('.close-btn').addEventListener('click', function () {
+                overlay.style.display = 'none';
+            });
+        });
+    </script>
 
 </head>
 
 <body>
-    <form method="post" action="https://api.casp.dev/upload.php" enctype="multipart/form-data" id="uploadForm" name="uploadForm">
-        <center>
-            <label>3 GB File Upload Limit</label>
-        </center>
 
-        <label for="p12" class="custom-file-label">
-            <span>.P12 File</span>
-        </label>
-        <input type="file" id="p12" name="p12" accept=".p12" required="" class="custom-file-input">
-  
-        <label for="mobileprovision" class="custom-file-label">
-            <span>.MobileProvision File</span>
-        </label>
-        <input type="file" id="mobileprovision" name="mobileprovision" accept=".mobileprovision" required="" class="custom-file-input">
-  
-        <label for="ipa" class="custom-file-label">
-            <span>.IPA File</span>
-        </label>
-        <input type="file" id="ipa" name="ipa" accept=".ipa" required="" class="custom-file-input">
-        <center>
-        <label for="pass" class="p12passlabel">Password of the certificate</label>
-        </center>
-        <input type="text" id="pass" name="pass" placeholder="Example: AppleP12.com" required="" class="p12passinput">
-        <center>
-          <input type="submit" class="button" value="SIGN">
-        </center>
-        <center>
-            <label> Powered by EonHub API</label>
-        </center>
-    </form>
-</body>
+    <div class="navbar">
+        <div class="button-container">
+          <a href="FabricSignHome.html"><img src="/PaperNew.webp" style="height: 50px; margin-right: 10px;" loading="lazy"></a>
+          <a class="navlink" href="https://github.com/Poopsock98/Fabricsign">
+            <p class="navtxt">Github</p>
+          </a>
+          <a class="navlink" href="/apprepo.html">
+            <p class="navtxt">App Libary</p>
+          </a>
+          <a class="navlink" href="/FabricSign.html">
+            <p class="navtxt">Signer</p>
+            </a>
+        </div>
+    </div>
 
-</html>
+    <div class="centersign" style="padding-top: 86;">
+
+        <form method="post" action="https://api.casp.dev/upload.php" enctype="multipart/form-data" id="uploadForm" name="uploadForm">
+            <center>
+                <label>3 GB File Upload Limit</label>
+            </center>
+    
+            <label for="p12" class="custom-file-label">
+                <span>.P12 File</span>
+            </label>
+            <input type="file" id="p12" name="p12" accept=".p12" required="" class="custom-file-input">
+      
+            <label for="mobileprovision" class="custom-file-label">
+                <span>.MobileProvision File</span>
+            </label>
+            <input type="file" id="mobileprovision" name="mobileprovision" accept=".mobileprovision" required="" class="custom-file-input">
+      
+            <label for="ipa" class="custom-file-label">
+                <span>.IPA File</span>
+            </label>
+            <input type="file" id="ipa" name="ipa" accept=".ipa" required="" class="custom-file-input">
+            <center>
+            <label for="pass" class="p12passlabel">Password of the certificate</label>
+            </center>
+            <input type="text" id="pass" name="pass" placeholder="Example: AppleP12.com" required="" class="p12passinput">
+            <center>
+              <input type="submit" class="button" value="SIGN">
+            </center>
+            <center>
+                <label> Powered by EonHub API</label>
+            </center>
+        </form>
+
+        <div class="overlay">
+            <div class="popup">
+                <span class="close-btn">&times;</span>
+                <h2>How to Add to Home Screen</h2>
+                <p>Follow these steps to add the app to your home screen:</p>
+                <ul>
+                    <li style="list-style: none;">Step 1: Open the browser menu or tap the "Share" button.</li>
+                    <li style="list-style: none;">Step 2: Select "Add to Home Screen."</li>
+                    <li style="list-style: none;">Step 3: Confirm by tapping "Add" or "Add to Home Screen."</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body></html>
