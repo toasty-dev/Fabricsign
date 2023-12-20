@@ -49,14 +49,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Show the overlay and pop-up on page load
-            const overlay = document.querySelector('.overlay');
-            overlay.style.display = 'flex';
+            // Check if the PWA installation prompt is supported and not in standalone mode
+            if (!(window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches)) {
+                const overlay = document.querySelector('.overlay');
+                overlay.style.display = 'flex';
 
-            // Close the pop-up when clicking the close button
-            document.querySelector('.close-btn').addEventListener('click', function () {
-                overlay.style.display = 'none';
-            });
+                // Close the pop-up when clicking the close button
+                document.querySelector('.close-btn').addEventListener('click', function () {
+                    overlay.style.display = 'none';
+                });
+            }
         });
     </script>
 
