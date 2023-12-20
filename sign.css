@@ -1,0 +1,169 @@
+body {
+  font-family: 'Poppins';
+  background-color: #141016;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+form {
+  background-color: #141016;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 3px 20px #9877A55a;
+  width: 100%;
+  max-width: 500px;
+}
+.centersign {
+  display: flex;
+  justify-content: center;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: 'Poppins';
+}
+
+/* Customized file input */
+.custom-file-input {
+  display: none;
+}
+
+.custom-file-label {
+  background-color: #9877A5;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  font-family: 'Poppins';
+}
+
+.custom-file-label:hover {
+  background-color: #333;
+}
+
+/* Customized button */
+.button {
+  background-color: #604555;
+  color: #ffffff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: 'Poppins';
+}
+
+.button:hover {
+  background-color: #333;
+}
+
+/* Custom Password Inputs*/
+.p12passinput {
+  border: 0px;
+  border-radius: 100px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Poppins';
+}
+
+.navbar {
+      display: flex;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 11;
+      height: 56px;
+      overflow-x: auto;
+      background-color: #141016;
+      border-bottom: 1px solid #9877A5;
+  }
+
+  .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      white-space: nowrap;
+      padding-left: 106px;
+      padding-right: 106px;
+  }
+
+  .navlink {
+      text-decoration: none;
+  }
+
+  .navtxt {
+      text-decoration: none;
+      border-radius: 24px;
+      border: 1px solid transparent;
+      padding: .4em 1.2em;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      color: #000;
+      background-color: #e8e8ed;
+      cursor: pointer;
+      transition: background-color .25s;
+      margin: 0;
+  }
+
+  @media (max-width: 700px) {
+  .navbar {
+      width: auto;
+  }
+  .navtxt {
+      font-size: 16px;
+  }
+  .button-container {
+      padding-left: 10px;
+      padding-right: 600px;
+  }
+  }
+  
+  .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      align-items: center; 
+      justify-content: center;
+      z-index: 1000;
+      color: white;
+  }       
+
+.popup {
+      background-color: #141016;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #9877A55a;
+      max-width: 400px;
+      text-align: center;
+      position: relative; /* Added to make the position of .close-btn relative to .popup */
+  }
+
+  .close-btn {
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      color: #ffffff; /* Added color for better visibility */
+  }
