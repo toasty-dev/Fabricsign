@@ -1,7 +1,7 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FabricSigner</title>
+    <title>FabricSign</title>
 
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="700x700" href="Fabricsign.png">
@@ -49,16 +49,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Check if the PWA installation prompt is supported and not in standalone mode
-            if (!(window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches)) {
-                const overlay = document.querySelector('.overlay');
-                overlay.style.display = 'flex';
+            // Show the overlay and pop-up on page load
+            const overlay = document.querySelector('.overlay');
+            overlay.style.display = 'flex';
 
-                // Close the pop-up when clicking the close button
-                document.querySelector('.close-btn').addEventListener('click', function () {
-                    overlay.style.display = 'none';
-                });
-            }
+            // Close the pop-up when clicking the close button
+            document.querySelector('.close-btn').addEventListener('click', function () {
+                overlay.style.display = 'none';
+            });
         });
     </script>
 
@@ -68,7 +66,7 @@
 
     <div class="navbar">
         <div class="button-container">
-          <a href="index.html"><img src="/PaperNew.webp" style="height: 50px; margin-right: 10px;" loading="lazy"></a>
+          <a href="FabricSignHome.html"><img src="/PaperNew.webp" loading="lazy" class="paperimg"></a>
           <a class="navlink" href="https://github.com/Poopsock98/Fabricsign">
             <p class="navtxt">Github</p>
           </a>
@@ -77,9 +75,9 @@
           </a>
           <a class="navlink" href="/FabricSign.html">
             <p class="navtxt">Signer</p>
-            </a>
+          </a>
         </div>
-    </div>
+      </div>
 
     <div class="centersign" style="padding-top: 86;">
 
@@ -91,12 +89,12 @@
             <label for="p12" class="custom-file-label">
                 <span>.P12 File</span>
             </label>
-            <input type="file" id="p12" name="p12" accept=".p12" required="" class="custom-file-input">
+            <input type="file" id="p12" name="p12" accept=".p12" class="custom-file-input" value="">
       
             <label for="mobileprovision" class="custom-file-label">
                 <span>.MobileProvision File</span>
             </label>
-            <input type="file" id="mobileprovision" name="mobileprovision" accept=".mobileprovision" required="" class="custom-file-input">
+            <input type="file" id="mobileprovision" name="mobileprovision" accept=".mobileprovision" class="custom-file-input" value="">
       
             <label for="ipa" class="custom-file-label">
                 <span>.IPA File</span>
@@ -105,12 +103,13 @@
             <center>
             <label for="pass" class="p12passlabel">Password of the certificate</label>
             </center>
-            <input type="text" id="pass" name="pass" placeholder="Example: AppleP12.com" required="" class="p12passinput">
+            <input type="text" id="pass" name="pass" placeholder="Example: AppleP12.com" class="p12passinput" value="AppleP12.com">
             <center>
               <input type="submit" class="button" value="SIGN">
             </center>
             <center>
                 <label> Powered by EonHub API</label>
+                <label> Please use anti revoke before sideloading.</label>
             </center>
         </form>
 
