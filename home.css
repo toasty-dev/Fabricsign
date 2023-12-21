@@ -5,6 +5,9 @@ body {
   margin: 0;
   padding: 0;
 }
+.about {
+  padding: calc(30px + 56px) 0 30px;
+}
 .mainheader{
   display: flex;
   align-items: center;
@@ -222,7 +225,7 @@ body {
     padding-left: 10px;
     padding-right: 600px;
   }
-  .about {
+  .fet-container {
     padding-left: 24px;
     padding-right: 24px;
   }
