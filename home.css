@@ -52,7 +52,7 @@ body {
 }
 
 .fetcontainer{
-  padding: 3em;
+  padding: 1em;
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
