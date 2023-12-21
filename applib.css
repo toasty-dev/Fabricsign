@@ -1,0 +1,184 @@
+body {
+  font-family: 'Inter';
+  background-color: #141016;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.getbutton {
+  padding: 10px 40px 10px 40px;
+  border: none;
+  background-color: #9877A5;
+  color: white;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Inter';
+  box-shadow: 0px 5px 3px #58465f;
+  transition: background-color .25s, translate .25s, box-shadow .25s;
+}
+
+.getbutton:hover {
+  background-color: #725c7a;
+}
+
+.getbutton:active {
+  translate: 0px 5px;
+  box-shadow: 0 0 0 0;
+}
+
+.getlink {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  display: block;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 11;
+  height: 56px;
+  overflow-x: auto;
+  background-color: #141016;
+  border-bottom: 1px solid #9877A5;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+    padding-left: 106px;
+    padding-right: 106px;
+}
+
+.navlink {
+    text-decoration: none;
+}
+
+.navtxt {
+    text-decoration: none;
+    border-radius: 24px;
+    border: 1px solid transparent;
+    padding: .4em 1.2em;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #000;
+    background-color: #e8e8ed;
+    cursor: pointer;
+    transition: opacity .25s, background-color .25s, color .25s;
+    margin: 0;
+}
+
+.navtxt:hover {
+  opacity: 0.7;
+}
+
+.navtxt:active {
+  opacity: 1;
+  background-color: #765e77;
+  color: white
+}
+
+.paperimg {
+  height: 43px; 
+  margin-right: 10px;
+  transition: transform 0.65s;
+}
+
+.paperimg:hover {
+  transform: rotate(365deg);
+}
+
+.paperimg:active {
+  transform: scale(0.9);
+}
+
+
+.titlecont {
+  padding: 86px 0 30px 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.title {
+  font-size: 32px; 
+  font-weight: bold;
+}
+
+.appcontainer {
+  display: grid;
+  padding: 3em;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+}
+
+.app {
+  background-color: #161118;
+  max-width: 400px;
+  height: 150px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 20px #9877a5;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.viscont {
+  display: inline-block;
+}
+
+.appname {
+  max-width: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.infocont {
+  display: inline-block;
+}
+
+.vercont {
+  color: #9877a5;
+}
+
+.appsize {
+  color: #9877a5;
+}
+
+.appimg {
+  border-radius: 20px;
+  max-width: 96px;
+  margin: 0 15px 5px 10px;
+}
+
+.getcont {
+  display: inline-block;
+  margin: auto;
+}
+
+@media (max-width: 700px) {
+.navbar {
+    width: auto;
+}
+.navtxt {
+    font-size: 16px;
+}
+.button-container {
+    padding-left: 10px;
+    padding-right: 600px;
+}
+.appcontainer {
+  padding-left: 20px;
+}
+}
