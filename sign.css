@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins';
+  font-family: 'Inter';
   background-color: #141016;
   margin: 0;
   padding: 0;
@@ -82,52 +82,76 @@ label {
 }
 
 .navbar {
-      display: flex;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 11;
-      height: 56px;
-      overflow-x: auto;
-      background-color: #141016;
-      border-bottom: 1px solid #9877A5;
-  }
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 11;
+  height: 56px;
+  overflow-x: auto;
+  background-color: #141016;
+  border-bottom: 1px solid #9877A5;
+}
 
-  .button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      white-space: nowrap;
-      padding-left: 106px;
-      padding-right: 106px;
-  }
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+    padding-left: 106px;
+    padding-right: 106px;
+}
 
-  .navlink {
-      text-decoration: none;
-  }
+.navlink {
+    text-decoration: none;
+}
 
-  .navtxt {
-      text-decoration: none;
-      border-radius: 24px;
-      border: 1px solid transparent;
-      padding: .4em 1.2em;
-      font-size: 16px;
-      font-weight: 600;
-      font-family: inherit;
-      color: #000;
-      background-color: #e8e8ed;
-      cursor: pointer;
-      transition: background-color .25s;
-      margin: 0;
-  }
+.navtxt {
+    text-decoration: none;
+    border-radius: 24px;
+    border: 1px solid transparent;
+    padding: .4em 1.2em;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #000;
+    background-color: #e8e8ed;
+    cursor: pointer;
+    transition: opacity .25s, background-color .25s, color .25s;
+    margin: 0;
+}
+
+.navtxt:hover {
+  opacity: 0.7;
+}
+
+.navtxt:active {
+  opacity: 1;
+  background-color: #765e77;
+  color: white
+}
+
+.paperimg {
+  height: 40px; 
+  margin-right: 10px;
+  transition: transform 0.65s;
+}
+
+.paperimg:hover {
+  transform: rotate(365deg);
+}
+
+.paperimg:active {
+  transform: scale(0.9);
+}
 
   @media (max-width: 700px) {
   .navbar {
       width: auto;
   }
   .navtxt {
-      font-size: 12px;
+      font-size: 16px;
   }
   .button-container {
       padding-left: 10px;
