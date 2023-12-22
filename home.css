@@ -14,8 +14,8 @@ body {
   margin: 0 0 30px;
 }
 .contentblock{
-  margin-right: 86px;
-  margin-left: 86px;
+  margin-right: auto;
+  margin-left: auto;
   display: block;
 }
 .getbutton {
