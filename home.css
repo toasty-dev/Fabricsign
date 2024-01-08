@@ -84,6 +84,40 @@ body {
   }
 }
 
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center; 
+  justify-content: center;
+  z-index: 1000;
+  color: white;
+}       
+
+.popup {
+  background-color: #141016;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #9877A55a;
+  max-width: 400px;
+  text-align: center;
+  position: relative; /* Added to make the position of .close-btn relative to .popup */
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #ffffff; /* Added color for better visibility */
+}
+
+
 @media (min-width: 600px) {
   .span2 {
     grid-column: auto / span 2;
