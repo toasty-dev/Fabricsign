@@ -31,6 +31,23 @@
 
     <link rel="stylesheet" href="home.css">
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const donateButton = document.querySelector('.donate');
+          const overlay = document.querySelector('.overlay');
+    
+          donateButton.addEventListener('click', function () {
+              // Show the overlay and pop-up
+              overlay.style.display = 'flex';
+          });
+    
+          // Close the pop-up when clicking the close button
+          document.querySelector('.close-btn').addEventListener('click', function () {
+              overlay.style.display = 'none';
+          });
+      });
+    </script>
+
   </head>
   <body>
 
@@ -120,6 +137,15 @@
               </a>
             </div>
           </center>
+        </div>
+      </div>
+
+      <div class="overlay">
+        <div class="popup">
+            <span class="close-btn" style="cursor: pointer;">&times;</span>
+            <h2>Donate</h2>
+            <p>❤️ Thanks for your support ❤️</p>
+            <p>CashApp: $imb3tterthany0u</p>
         </div>
       </div>
 
